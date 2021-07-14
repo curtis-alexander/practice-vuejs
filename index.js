@@ -1,4 +1,4 @@
-/* global Vue */
+/* global Vue, axios */
 var app = new Vue({
   el: "#app",
   data: function () {
@@ -8,12 +8,8 @@ var app = new Vue({
       color: "Green",
       secret: true,
       fruits: ["apple", "banana", "pear", "orange"],
-      todos: [
-        { text: 'Learn JavaScript' },
-        { text: 'Learn Vue' },
-        { text: 'Build something awesome' }
-      ],
       newFruit: [],
+      todos: [],
     };
   },
   methods: {
@@ -34,6 +30,13 @@ var app = new Vue({
     addNewFruit: function () {
       console.log("adding new fruit...");
       console.log(this.newFruit);
+      this.fruits.push(this.newFruit);
+    },
+    loadTodos: function () {
+      axios.get("https://jsonplaceholder.typicode.com/todos").then(response => {
+        console.log(response.data);
+        this.todos = response.data;
+      });
     },
   }
 });

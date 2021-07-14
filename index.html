@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <title>Practice Vue.js</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="index.js" defer></script>
   </head>
   <body>
@@ -21,11 +22,17 @@
       <div v-for="fruit in fruits">
         {{ fruit }}
       </div>
-      <!-- <div v-for="todo in todos">
-        <h6>{{ todo.text }}</h6>
-      </div> -->
       <div>
         <input type="text" v-model="newFruit"><button v-on:click="addNewFruit">Add Fruit</button>
+      </div>
+      <hr>
+      <hr>
+      <div>
+      <div v-for="todo in todos">
+        {{ todo }}
+      </div>
+      <div>
+        <button v-on:click="loadTodos">Load Todos</button>
       </div>
     </div>
   </body>
