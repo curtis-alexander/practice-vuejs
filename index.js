@@ -38,5 +38,12 @@ var app = new Vue({
         this.todos = response.data;
       });
     },
-  }
+  },
+  created: function () {
+    console.log("run automatic");
+    axios.get("https://jsonplaceholder.typicode.com/todos").then(response => {
+      console.log(response.data);
+      this.todos = response.data;
+    });
+  },
 });

@@ -29,7 +29,7 @@
       <hr>
       <div>
       <div v-for="todo in todos">
-        {{ todo }}
+        <p>{{ todo.title }}</p>
       </div>
       <div>
         <button v-on:click="loadTodos">Load Todos</button>
